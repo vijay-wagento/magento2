@@ -162,6 +162,7 @@ class Topmenu
             'url' => $this->catalogCategory->getCategoryUrl($category),
             'has_active' => in_array((string)$category->getId(), explode('/', $currentCategory->getPath()), true),
             'is_active' => $category->getId() == $currentCategory->getId(),
+            'is_category' => true,
             'is_parent_active' => $isParentActive
         ];
     }
@@ -183,6 +184,7 @@ class Topmenu
         $collection->addFieldToFilter('path', ['like' => '1/' . $rootId . '/%']); //load only from store root
         $collection->addAttributeToFilter('include_in_menu', 1);
         $collection->addIsActiveFilter();
+        $collection->addNavigationMaxDepthFilter();
         $collection->addUrlRewriteToResult();
         $collection->addOrder('level', Collection::SORT_ORDER_ASC);
         $collection->addOrder('position', Collection::SORT_ORDER_ASC);
