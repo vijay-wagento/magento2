@@ -1,5 +1,5 @@
 // /**
-//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * Copyright © Magento, Inc. All rights reserved.
 //  * See COPYING.txt for license details.
 //  */
 
@@ -260,6 +260,7 @@
         display: block;
         padding: @indent__s;
         text-align: center;
+        box-sizing: border-box;
     }
 
     .page-header,
@@ -408,6 +409,12 @@
                 }
             }
         }
+    }
+    .page-footer,
+    .copyright {
+        bottom: 0;
+        position: absolute;
+        width: 100%;
     }
 }
 
